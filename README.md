@@ -26,3 +26,6 @@ editor e.g vscode.
 
 5 source virtual/bin/activate
 
+## Suppor and Contact details
+THe application is an open source product if you might want to improve on it or incase of any questions please reach me through email. (owinolawrence21@gmail.com)
+
