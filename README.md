@@ -29,3 +29,9 @@ editor e.g vscode.
 ## Suppor and Contact details
 THe application is an open source product if you might want to improve on it or incase of any questions please reach me through email. (owinolawrence21@gmail.com)
 
+## License
+
+This project is licensed under the terms of
+[MIT](https://choosealicense.com/licenses/mit/)
+Copyright (c) 2019 Owino Lawrence Odhiambo
+
