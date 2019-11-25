@@ -28,7 +28,7 @@ def signup():
         user =  User(email = form.email.data, username = form.username.data,password = form.password.data)
         user.save_user()
         try:
-            msg = Message('Hello...Welcome to pitches.We are glad you joined us',sender=('esthertest@gmail.com'))
+            msg = Message('Hello...Welcome to pitches.We are glad you joined us',sender=('owinolawrence21@gmail.com'))
             msg.add_recipient(user.email)
             mail.send(msg)
         except Exception as e:
@@ -44,7 +44,7 @@ def signup():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.ququery.filter_by(username = form.username.data).first()
+        user = User.query.filter_by(username = form.username.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user,form.remember.data)
             return redirect(request.args.get('next') or url_for('main.all_pitches'))
@@ -61,11 +61,11 @@ def lognout():
     logout_user()
     flash('You have been successfully logged out')
     return redirect(url_for("main.index"))
-        # if user is not None and user.verify_password(login_form.password.data):
-        #     login_user(user,login_form.remember.data)
-        #     return redirect(request.args.get('next') or url_for('main.index'))
+    if user is not None and user.verify_password(login_form.password.data):
+            login_user(user,login_form.remember.data)
+            return redirect(request.args.get('next') or url_for('main.index'))
 
-        # flash('Invalid username or Password')
+            flash('Invalid username or Password')
 
     title = "pitches login"
     return render_template('auth/login.html',login_form = login_form,title=title)
