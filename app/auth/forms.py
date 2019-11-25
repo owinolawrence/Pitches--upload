@@ -1,43 +1,16 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField
-from wtforms.validators import Required,Email,EqualTo
-from ..models import User
-from wtforms import ValidationError
-from flask import render_template,redirect,url_for
-from .forms import RegistrationForm
-from .. import db
+from wtforms import StringField,PasswordField,BooleanField,SubmitField
+from wtforms.validators import DataRequired,Length,Email,EqualTo
 
-
-class RegistrationForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    username = StringField('Enter your username',validators = [Required()])
-    password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
-    password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
+class SignUpForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(),Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(),EqualTo('password')])
     submit = SubmitField('Sign Up')
-   
-    def validate_email(self,data_field):
-            if User.query.filter_by(email =data_field.data).first():
-                raise ValidationError('There is an account with that email')
-
-   
-    def validate_username(self,data_field):
-        if User.query.filter_by(username = data_field.data).first():
-            raise ValidationError('That username is taken')
-
-
-@auth.route('/register',methods = ["GET","POST"])
-def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data,password = form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('auth.login'))
-        title = "New Account"
-    return render_template('auth/register.html',registration_form = form)
 
 class LoginForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    password = PasswordField('Password',validators =[Required()])
-    remember = BooleanField('Remember me')
-    submit = SubmitField('Sign In')
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Log In')
