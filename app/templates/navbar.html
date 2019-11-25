@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Pitches</a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">PITCHES</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
                 <a class="nav-link" href="{{url_for('main.all_pitches')}}">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('auth.signout')}}">Sign Out</a><span class="sr-only"></span></a>
+                <a class="nav-link" href="{{url_for('auth.logout')}}">log out</a><span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('main.profile',username=current_user.username)}}">Account</a><span
@@ -41,17 +41,17 @@
                 <a class="nav-link" href="{{url_for('main.all_pitches')}}">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('auth.signout')}}">Sign Out</a><span class="sr-only"></span></a>
+                <a class="nav-link" href="{{url_for('auth.logout')}}">log Out</a><span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('main.profile',username=current_user.username)}}">Account</a><span
                     class="sr-only"></span></a>
             </li>
             {%else%}
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+            <li class="nav-item active"></span></a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only"></span>
                 <a class="nav-link" href="/all_pitches">Pitches<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
