@@ -3,8 +3,7 @@ from flask_script import Manager ,Server
 
 # from flask_script import Manager,Server
 from flask_migrate import  Migrate ,MigrateCommand
-# #
-from app.models import User ,Pitch , Comments
+from app.models import User 
 from app import pitch_app,db
 from config import config_options
    
@@ -13,7 +12,7 @@ app =pitch_app('development')
 manager = Manager(app)
 # manager.add_command('server',Server)
 migrate = Migrate(app,db)
-# manager.add_command('db',MigrateCommand)
+manager.add_command('db',MigrateCommand)
 # @manager.command
 # def test():
 #     """Run the unit tests."""
