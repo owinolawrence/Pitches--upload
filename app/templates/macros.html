@@ -15,9 +15,9 @@
                         <i>{{pitch.author}}</i>
                     </p>
                     <div>
-                        <a href=""><button class="btn btn-danger">Up Vote</button> </a>
-                        <a href=""><button class="btb btn-">Down Vote</button>  </a>
-                        <a href="{{url_for('main.comment',pitch_id=pitch.id)}}">Comment</a>&ensp;
+                        <a href=""><button class="btn btn-danger">Up Vote</button></a>
+                        <a href=""><button class="btb btn-primary">Down Vote</button>  </a>
+                        <a href="{{url_for('main.comment',pitch_id=pitch.id)}}">Comment</a>
                     </div>
                 </div>
                 <li class="list-group-item">{{pitch.date_posted.strftime('%d-%m-%Y %H:%M')}}</li>
