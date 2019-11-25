@@ -15,7 +15,7 @@ Owino Lawrence Odhiambo
 4 Css
 
 ## INSTALLATION
-1 git clone this repo.
+1 git clone this repo. (https://github.com/owinolawrence/Pitches--upload.git)
 
 2 Open the repo using your preffered text 
 editor e.g vscode.
